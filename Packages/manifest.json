@@ -1,9 +1,15 @@
 {
   "dependencies": {
+    "com.google.android.appbundle": "https://github.com/google-unity/android-app-bundle.git#1.9.0",
+    "com.google.play.common": "https://github.com/google-unity/google-play-common.git#1.9.1",
+	"com.google.play.review": "https://github.com/google-unity/in-app-review.git#1.8.2",
+	"com.google.play.core": "https://github.com/google-unity/google-play-core.git#1.8.4",
+	"com.google.external-dependency-manager": "https://github.com/google-unity/external-dependency-manager.git#1.2.172",
     "com.unity.2d.sprite": "1.0.0",
-    "com.unity.ide.visualstudio": "2.0.18",
-    "com.unity.textmeshpro": "3.0.6",
-    "com.unity.timeline": "1.6.5",
+    "com.unity.ai.navigation": "1.1.5",
+    "com.unity.ide.visualstudio": "2.0.22",
+    "com.unity.textmeshpro": "3.0.9",
+    "com.unity.timeline": "1.7.6",
     "com.unity.ugui": "1.0.0",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",

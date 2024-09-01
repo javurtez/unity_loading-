@@ -5,7 +5,7 @@ https://play.google.com/store/apps/details?id=com.TreberTGames.LoadingMinus
 
 ## Documentation
 ### Unity Version:
-* Unity 2021.3.26f1
+* Unity 2022.3.38f1
 
 ### Assets Used:
 * (Sprites): https://game-icons.net/
@@ -13,6 +13,6 @@ https://play.google.com/store/apps/details?id=com.TreberTGames.LoadingMinus
 
 ### Plugins Used:
 * LeanTween
-* Google In-App Review (v1.8.1) (Not Included)
-* Google Admob (v7.4.1) (Not Included)
+* Google In-App Review (v1.8.2)
+* Google Admob (v9.2.0) (Not Included)
 * Odin (Not Included)

@@ -13,9 +13,10 @@ public class AdManager : MonoManager<AdManager>
 
     protected override void Start()
     {
-        RequestConfiguration requestConfiguration = new RequestConfiguration.Builder()
-           .SetMaxAdContentRating(MaxAdContentRating.G)
-           .build();
+        RequestConfiguration requestConfiguration = new RequestConfiguration
+        {
+            MaxAdContentRating = MaxAdContentRating.G
+        };
         MobileAds.SetRequestConfiguration(requestConfiguration);
 
         MobileAds.Initialize(initStatus =>
@@ -37,10 +38,10 @@ public class AdManager : MonoManager<AdManager>
         bannerView.OnAdFullScreenContentClosed += HandleOnBannerClosed;
 
         // Create an empty ad request.
-        AdRequest request = new AdRequest.Builder().Build();
+        var adRequest = new AdRequest();
 
         // Load the banner with the request.
-        bannerView.LoadAd(request);
+        bannerView.LoadAd(adRequest);
     }
 
     private void RequestInterstitial()
@@ -48,8 +49,8 @@ public class AdManager : MonoManager<AdManager>
         if (adScriptable.appInterstitialId == "") return;
         OnInterstitialClose();
 
-        // create our request used to load the ad.
-        var adRequest = new AdRequest.Builder().Build();
+        //// create our request used to load the ad.
+        var adRequest = new AdRequest();
 
         // send the request to load the ad.
         InterstitialAd.Load(adScriptable.appInterstitialId, adRequest,
