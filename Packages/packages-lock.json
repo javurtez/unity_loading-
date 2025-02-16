@@ -8,11 +8,11 @@
       "hash": "949f3b068fea450d96de8fc2a30def2d3de92315"
     },
     "com.google.external-dependency-manager": {
-      "version": "https://github.com/google-unity/external-dependency-manager.git#1.2.172",
+      "version": "https://github.com/googlesamples/unity-jar-resolver.git?path=upm",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "9e1c8529285a6cb5b23c225c30fb9de0a1b6cfea"
+      "hash": "523887a52805e74b7acd1ba02bd0be183539e371"
     },
     "com.google.play.common": {
       "version": "https://github.com/google-unity/google-play-common.git#1.9.1",

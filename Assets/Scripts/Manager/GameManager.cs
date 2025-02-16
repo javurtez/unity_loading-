@@ -9,7 +9,7 @@ public class GameManager : MonoManager<GameManager>
     public static GameStatus GameNext;
     public static GameStatus GameRestart;
     public static GameStatus GameOver;
-    
+
     protected override void Awake()
     {
         instance = this;
@@ -21,6 +21,9 @@ public class GameManager : MonoManager<GameManager>
 
         ScorePanel.Instance.Open();
         LoadPanel.Instance.Open();
+
+        Application.targetFrameRate = 60;
+        QualitySettings.vSyncCount = 0;
     }
 
     public static void GameIsNext()
