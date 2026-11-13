@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using LoadingGame;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +20,12 @@ public class LoadPanel : BaseStaticPanel<LoadPanel>
     public LoadSlot loadSlot;
     public GameObject target, hit;
 
+    [Tooltip("Parent for the instantiated shape slots. Falls back to the panel root when empty.")]
+    [SerializeField] private RectTransform slotContainer;
+    [Tooltip("Optional visual feedback. The panel works without it.")]
+    [SerializeField] private LoadPanelView view;
+    [SerializeField] private VisualTheme theme;
+
     protected void Start()
     {
         target.SetActive(false);
@@ -27,22 +34,25 @@ public class LoadPanel : BaseStaticPanel<LoadPanel>
         playButton.transform.localScale = Vector3.zero;
         playButton.interactable = false;
 
-        LeanTween.scale(playButton.gameObject, Vector2.one, .3f).setOnComplete(() =>
+        LeanTween.scale(playButton.gameObject, Vector2.one, .3f).setEase(LeanTweenType.easeOutBack).setOnComplete(() =>
         {
             playButton.interactable = true;
         });
 
         Technical.Shuffle(loadSlotPrefabs);
+        Transform slotParent = slotContainer != null ? slotContainer : transform;
         loadSlots = new LoadSlot[loadSlotPrefabs.Length];
         int index = 0;
         foreach (var item in loadSlotPrefabs)
         {
-            var loadSlot = Instantiate(item, transform);
+            var loadSlot = Instantiate(item, slotParent);
             loadSlot.name = item.name;
             loadSlot.Close();
             loadSlots[index] = loadSlot;
             index++;
         }
+
+        if (view != null) view.BeginIdle(loadSlots[loadSlotIndex]);
     }
 
     public void GetCurrentLoad()
@@ -53,11 +63,14 @@ public class LoadPanel : BaseStaticPanel<LoadPanel>
         loadSlot.Open();
 
         loadSlotIndex = (loadSlotIndex + 1) % loadSlots.Length;
+
+        if (view != null) view.OnSlotChanged(loadSlot);
     }
 
     public void AdjustLoading(float Percentage)
     {
         loadSlot.loadPercentageImage.fillAmount = Percentage / 100f;
+        if (view != null) view.OnLoading(Percentage);
     }
     public void AdjustHit(int targetPercentage, int hitPercentage)
     {
@@ -67,6 +80,7 @@ public class LoadPanel : BaseStaticPanel<LoadPanel>
             loadSlot.correctPercentageImage.fillAmount = 0;
             nextButton.gameObject.SetActive(false);
             retryButton.gameObject.SetActive(false);
+            if (view != null) view.OnRoundReset();
             return;
         }
         loadSlot.loadPercentageImage.fillAmount = hitPercentage / 100f;
@@ -82,14 +96,23 @@ public class LoadPanel : BaseStaticPanel<LoadPanel>
             loadSlot.correctPercentageImage.transform.SetAsLastSibling();
         }
 
+        if (view != null) view.OnHit(targetPercentage, hitPercentage);
+
         LeanTween.delayedCall(gameObject, .2f, () =>
         {
-            nextButton.gameObject.SetActive(true);
+            if (theme != null)
+                UiTweens.PopInButton(nextButton, theme.timings.buttonAppear);
+            else
+                nextButton.gameObject.SetActive(true);
         });
     }
     public void AdjustLoadTarget(int targetPercentage)
     {
-        targetPercentageText.text = targetPercentage + "";
+        if (view != null)
+            targetPercentageText.SetText("<mspace=0.6em>{0}</mspace><size=60%>%</size>", targetPercentage);
+        else
+            targetPercentageText.text = targetPercentage + "";
+        if (view != null) view.OnTargetSet(targetPercentage);
     }
 
     public void OnNext()

@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27d227227867c1f4a993fbb047c51393, type: 3}
+  m_Name: VisualTheme
+  m_EditorClassIdentifier: Assembly-CSharp::LoadingGame.VisualTheme
+  skyBottom: {r: 0.14117648, g: 0.2509804, b: 0.24705882, a: 1}
+  skyTop: {r: 0.07450981, g: 0.14509805, b: 0.16470589, a: 1}
+  showHairline: 0
+  hairline: {r: 0.24705882, g: 0.38431373, b: 0.4, a: 1}
+  surface: {r: 0.11764706, g: 0.20392157, b: 0.21960784, a: 1}
+  raised: {r: 0.15294118, g: 0.2509804, b: 0.24705882, a: 1}
+  border: {r: 0.30980393, g: 0.46666667, b: 0.48235294, a: 0.627451}
+  ghost: {r: 0.78431374, g: 0.9019608, b: 0.9019608, a: 0.12156863}
+  textPrimary: {r: 0.9490196, g: 0.98039216, b: 0.9764706, a: 1}
+  textSecondary: {r: 0.6784314, g: 0.7764706, b: 0.77254903, a: 1}
+  textDisabled: {r: 0.2901961, g: 0.36078432, b: 0.3647059, a: 1}
+  accent: {r: 0.30980393, g: 0.81960785, b: 0.77254903, a: 1}
+  accentPressed: {r: 0.23137255, g: 0.6862745, b: 0.6431373, a: 1}
+  success: {r: 0.35686275, g: 0.8901961, b: 0.5411765, a: 1}
+  warn: {r: 0.9490196, g: 0.70980394, b: 0.26666668, a: 1}
+  error: {r: 1, g: 0.36078432, b: 0.36078432, a: 1}
+  primaryButtonText: {r: 0.023529412, g: 0.0627451, b: 0.07058824, a: 1}
+  secondaryButtonText: {r: 1, g: 0.56078434, b: 0.56078434, a: 1}
+  hpIcon: {r: 1, g: 0.47843137, b: 0.43137255, a: 1}
+  bestIcon: {r: 1, g: 0.78431374, b: 0.34117648, a: 1}
+  levelIcon: {r: 0.36862746, g: 0.8784314, b: 0.827451, a: 1}
+  bestChipAlpha: 0.85
+  families:
+  - label: Coral
+    fill: {r: 1, g: 0.41960785, b: 0.36862746, a: 1}
+    target: {r: 1, g: 0.76862746, b: 0.7372549, a: 1}
+  - label: Amber
+    fill: {r: 0.9490196, g: 0.70980394, b: 0.26666668, a: 1}
+    target: {r: 0.98039216, g: 0.8784314, b: 0.65882355, a: 1}
+  - label: Jade
+    fill: {r: 0.30980393, g: 0.8784314, b: 0.627451, a: 1}
+    target: {r: 0.7411765, g: 0.9607843, b: 0.85490197, a: 1}
+  - label: Cyan
+    fill: {r: 0.23529412, g: 0.78431374, b: 0.9098039, a: 1}
+    target: {r: 0.70980394, g: 0.9254902, b: 0.96862745, a: 1}
+  - label: Periwinkle
+    fill: {r: 0.56078434, g: 0.65882355, b: 1, a: 1}
+    target: {r: 0.827451, g: 0.8627451, b: 1, a: 1}
+  - label: Bone
+    fill: {r: 0.9019608, g: 0.93333334, b: 0.91764706, a: 1}
+    target: {r: 1, g: 1, b: 1, a: 1}
+  targetOverlayAlpha: 0.4509804
+  glowAlpha: 0.06
+  vignetteStrength: 0.2
+  tickRadius: 240
+  tickEdgeOffset: 24
+  tickPulseLead: 15
+  lowHpThreshold: 25
+  hintMaxLevel: 2
+  grades:
+  - label: PERFECT
+    maxError: 0
+    color: {r: 0.35686275, g: 0.8901961, b: 0.5411765, a: 1}
+    animation: 0
+    duration: 0.45
+    countsAsGoodHit: 1
+  - label: GREAT
+    maxError: 2
+    color: {r: 0.30980393, g: 0.8784314, b: 0.627451, a: 1}
+    animation: 1
+    duration: 0.35
+    countsAsGoodHit: 1
+  - label: GOOD
+    maxError: 5
+    color: {r: 0.30980393, g: 0.81960785, b: 0.77254903, a: 1}
+    animation: 2
+    duration: 0.3
+    countsAsGoodHit: 0
+  - label: OK
+    maxError: 10
+    color: {r: 0.9490196, g: 0.70980394, b: 0.26666668, a: 1}
+    animation: 3
+    duration: 0.25
+    countsAsGoodHit: 0
+  - label: MISS
+    maxError: 2147483647
+    color: {r: 1, g: 0.36078432, b: 0.36078432, a: 1}
+    animation: 4
+    duration: 0.25
+    countsAsGoodHit: 0
+  timings:
+    roundStartPop: 0.35
+    targetPunch: 0.3
+    tapSquashIn: 0.06
+    tapSquashOut: 0.25
+    flash: 0.2
+    buttonAppear: 0.3
+    buttonPress: 0.08
+    tickPulse: 0.25
+    glowTint: 0.4
+    hpCount: 0.4
+    deltaFloat: 0.8
+    levelPunch: 0.3
+    lowHpPulse: 0.6
+    idleDemoFill: 3
+    gameOverDelay: 0.3
+    gameOverDim: 0.4
+    gameOverPop: 0.4
+    retryDelay: 0.6
+    trophySpin: 0.5
+    stageShake: 0.25
+    stageShakePixels: 8
+    missShake: 0.3
+    missShakePixels: 12
+    wobbleDegrees: 6

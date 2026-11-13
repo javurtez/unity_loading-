@@ -48,7 +48,7 @@ public class LoadingManager : MonoManager<LoadingManager>
             HitTarget((int)currentLoad);
         }
 #elif UNITY_ANDROID
-        if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || currentLoad > 100)
+        if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || currentLoad >= 100)
         {
             HitTarget((int)currentLoad);
         }

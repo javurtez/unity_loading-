@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+using LoadingGame;
+using Sirenix.OdinInspector;
 
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,17 @@ public class LoadSlot : BaseSlot
 
     public Image correctPercentageImage;
     public Image loadPercentageImage;
+
+    [Tooltip("Color family used by the visual theme. Set by Tools > Loading > Apply Modern Theme.")]
+    [SerializeField] private ShapeColorFamily colorFamily;
+    [Tooltip("Used to dim the shape on game over.")]
+    [SerializeField] private CanvasGroup canvasGroup;
+
+    /// <summary>Color family of this shape, used to look up theme colors.</summary>
+    public ShapeColorFamily ColorFamily => colorFamily;
+
+    /// <summary>Canvas group on the slot root, or null if the prefab has none.</summary>
+    public CanvasGroup CanvasGroup => canvasGroup;
 
     public override void Open()
     {
